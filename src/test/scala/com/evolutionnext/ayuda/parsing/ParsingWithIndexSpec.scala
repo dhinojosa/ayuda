@@ -31,7 +31,7 @@ class ParsingWithIndexSpec extends FunSpec with Matchers {
       val out = Source.fromURL(this.getClass.getResource("/document_with_indexes.asc")).bufferedReader()
       val writer = new StringWriter()
       asciidoctor.render(out, writer, Map[String, AnyRef]().asJava)
-      println(writer.toString)
+      writer.toString should contain ("Barnyard")
     }
   }
 }
